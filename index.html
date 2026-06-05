@@ -40,7 +40,7 @@
     },
     "foundingDate": "2024",
     "areaServed": ["Ireland", "United Kingdom", "Europe"],
-    "serviceType": ["AI Workflow Automation", "Compliance Document Review", "Regulatory AI Systems"]
+    "serviceType": ["AI-Augmented Compliance Review", "Governance & Document Review", "Regulatory AI Systems", "Human-in-the-Loop Workflow Design"]
   }
   </script>
 
@@ -55,7 +55,7 @@
     "alumniOf": "University of Belgrade",
     "hasCredential": "PhD, Computer Science",
     "url": "https://www.linkedin.com/in/bojanfurlan",
-    "knowsAbout": ["AI Agents", "Compliance Automation", "Natural Language Processing", "Retrieval-Augmented Generation", "Machine Learning"]
+    "knowsAbout": ["AI-Augmented Compliance Review", "Governance & Document Review", "Natural Language Processing", "Retrieval-Augmented Generation", "Human-in-the-Loop AI Systems", "Machine Learning", "Information Retrieval"]
   }
   </script>
 
@@ -94,7 +94,7 @@
         "name": "What is a workflow audit?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A free 30-minute session where FurlanAI reviews one specific workflow in your organisation and provides an honest assessment of where AI can replace manual effort — and where it cannot. No pitch, no commitment."
+          "text": "A free 30-minute session where FurlanAI reviews one specific workflow in your organisation and provides an honest assessment of where AI can augment manual effort — and where it cannot. No pitch, no commitment."
         }
       }
     ]
@@ -194,6 +194,58 @@
     .how-step-num { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.25rem; }
     .how-step-name { font-weight: 500; font-size: 0.9rem; margin-bottom: 0.25rem; }
     .how-step-desc { font-size: 0.82rem; color: var(--ink-muted); line-height: 1.5; }
+
+    /* ── WORKFLOW DIAGRAM ── */
+    .workflow-section { margin-top: 3rem; }
+    .workflow-title { font-family: var(--serif); font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .workflow-sub { font-size: 0.875rem; color: var(--ink-muted); margin-bottom: 1.75rem; max-width: 560px; line-height: 1.6; }
+    .workflow-steps { display: flex; flex-wrap: wrap; gap: 0; align-items: stretch; }
+    .workflow-step {
+      flex: 1; min-width: 100px;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      padding: 1rem 0.875rem;
+      position: relative;
+      text-align: center;
+    }
+    .workflow-step + .workflow-step { margin-left: -1px; border-radius: 0; }
+    .workflow-step:first-child { border-radius: 6px 0 0 6px; }
+    .workflow-step:last-child { border-radius: 0 6px 6px 0; }
+    .workflow-step.human {
+      background: #fdf0ee;
+      border-color: var(--accent);
+      z-index: 1;
+    }
+    .workflow-step.audit {
+      background: #edf7f2;
+      border-color: #1a7a4a;
+    }
+    .workflow-icon { font-size: 1.25rem; margin-bottom: 0.4rem; }
+    .workflow-label { font-size: 0.75rem; font-weight: 500; color: var(--ink); line-height: 1.35; }
+    .workflow-desc { font-size: 0.68rem; color: var(--ink-muted); margin-top: 0.25rem; line-height: 1.35; }
+    .workflow-legend { display: flex; gap: 1.5rem; margin-top: 1rem; flex-wrap: wrap; }
+    .legend-item { display: flex; gap: 0.5rem; align-items: center; font-size: 0.78rem; color: var(--ink-muted); }
+    .legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+    .legend-dot.ai { background: var(--paper); border: 1px solid var(--rule); }
+    .legend-dot.human { background: #fdf0ee; border: 1px solid var(--accent); }
+    .legend-dot.audit { background: #edf7f2; border: 1px solid #1a7a4a; }
+
+    /* EU AI Act badge */
+    .governance-bar {
+      margin-top: 2.5rem;
+      padding: 1rem 1.5rem;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      align-items: center;
+    }
+    .governance-bar-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); flex-shrink: 0; }
+    .governance-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .gov-tag { font-size: 0.78rem; color: var(--ink-mid); background: var(--paper-2); border: 1px solid var(--rule); border-radius: 3px; padding: 3px 10px; }
 
     /* ── QUALIFY ── */
     #qualify { border-bottom: 1px solid var(--rule); }
@@ -348,7 +400,7 @@
   <div class="container-wide">
     <p class="section-label">Client outcomes &amp; prior track record</p>
     <h2 class="section-title">Proof it works</h2>
-    <p class="section-intro">Every engagement starts with understanding your workflow and regulatory context, progresses through a working prototype tested against real requirements, and ends with a system your compliance team can rely on and your auditors can follow.</p>
+    <p class="section-intro">Every engagement starts with understanding your workflow and regulatory context, progresses through a working prototype tested against real requirements, and ends with a system your compliance team can rely on and your auditors can follow. Systems are designed with EU AI Act compliance, human-in-the-loop controls, and full audit traceability in mind.</p>
     <div class="case-grid">
       <div class="case-card fade-up">
         <span class="case-tag">Pharmaceutical · London</span>
@@ -369,7 +421,64 @@
         <div class="case-outcome">→ Enterprise-scale production systems</div>
       </div>
     </div>
-    <div class="how-we-work">
+    <!-- WORKFLOW DIAGRAM -->
+    <div class="workflow-section fade-up">
+      <h3 class="workflow-title">How an AI-augmented review workflow operates</h3>
+      <p class="workflow-sub">Every system we build follows this governance-first arc — from regulatory input to auditable evidence record. Human approval is always a required gate, not an optional step.</p>
+      <div class="workflow-steps">
+        <div class="workflow-step">
+          <div class="workflow-icon">📥</div>
+          <div class="workflow-label">Regulatory Update</div>
+          <div class="workflow-desc">New regulation or policy change ingested</div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-icon">🔍</div>
+          <div class="workflow-label">Document Ingestion</div>
+          <div class="workflow-desc">Internal policies, procedures, and templates processed</div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-icon">🤖</div>
+          <div class="workflow-label">AI Classification</div>
+          <div class="workflow-desc">Obligations extracted, relevance scored, gaps flagged</div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-icon">🗺️</div>
+          <div class="workflow-label">Policy Mapping</div>
+          <div class="workflow-desc">AI findings traced back to source documents</div>
+        </div>
+        <div class="workflow-step human">
+          <div class="workflow-icon">👤</div>
+          <div class="workflow-label">Human Approval</div>
+          <div class="workflow-desc">Reviewer validates, overrides, or escalates — required gate</div>
+        </div>
+        <div class="workflow-step audit">
+          <div class="workflow-icon">📋</div>
+          <div class="workflow-label">Audit Log</div>
+          <div class="workflow-desc">Full evidence trail — every decision recorded and traceable</div>
+        </div>
+      </div>
+      <div class="workflow-legend">
+        <div class="legend-item"><div class="legend-dot ai"></div>AI-assisted step</div>
+        <div class="legend-item"><div class="legend-dot human"></div>Human approval gate</div>
+        <div class="legend-item"><div class="legend-dot audit"></div>Audit evidence</div>
+      </div>
+    </div>
+
+    <!-- GOVERNANCE BAR -->
+    <div class="governance-bar fade-up">
+      <span class="governance-bar-label">Designed for</span>
+      <div class="governance-tags">
+        <span class="gov-tag">EU AI Act compliance</span>
+        <span class="gov-tag">Human-in-the-loop controls</span>
+        <span class="gov-tag">Full audit traceability</span>
+        <span class="gov-tag">Model governance</span>
+        <span class="gov-tag">Explainable AI recommendations</span>
+        <span class="gov-tag">Regulatory change monitoring</span>
+      </div>
+    </div>
+
+    <!-- HOW EVERY ENGAGEMENT WORKS -->
+    <div class="how-we-work" style="margin-top:1.5rem;">
       <h3 class="how-title">How every engagement works</h3>
       <div class="how-steps">
         <div class="how-step">
@@ -436,6 +545,7 @@
         <p class="about-role">Founder &amp; Lead AI Architect · FurlanAI</p>
         <p class="about-body">I investigate emerging AI technologies, build working prototypes, and push them into production — in environments where reliability matters more than benchmark scores. I have done this across global corporations in enterprise cloud data management, pharmaceutical compliance, and social media intelligence.</p>
         <p class="about-body">Over fifteen years across academia, startups, and a $1.3B ARR enterprise, I have learned that the system around it is as important as the AI model.</p>
+        <p class="about-body">We work alongside your internal compliance and regulatory experts — combining AI architecture with the domain knowledge your teams already have.</p>
         <div class="about-track">
           <div class="track-item">
             <div class="track-dot"></div>
